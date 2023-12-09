@@ -1,0 +1,70 @@
+#!/usr/bin/python3
+
+from colorama import Fore, Style
+import image
+import time
+import sys
+import os
+
+def init():
+    os.system('clear')
+
+    image.printImage()
+    isRunning = True
+
+    while isRunning:
+        cmd = input('> ')
+        cmd_list = cmd.split()
+        if cmd_list[0] == 'runpy':
+            if cmd_list[1] == 'buildozer':
+                if cmd_list[2] == '-config':
+                    os.system('/Users/tema/Library/Python/3.9/bin/buildozer init')
+        elif cmd_list[0] == 'python-project':
+            if cmd_list[1] == '-sub':
+                if cmd_list[2] == 'android':
+                    print('')
+                    print('Subscribing...')
+                    time.sleep(3)
+                    print(Fore.GREEN)
+                    print('Your project was successfully subscribed for android SDK!', Style.BRIGHT)
+                    print(Fore.WHITE)
+        elif cmd_list[0] == 'foxadb':
+            if cmd_list[1] == 'device':
+                if cmd_list[2] == '-connect':
+                    time.sleep(5)
+                    print(Fore.GREEN)
+                    print('Your device was successfully connected and will be rebooted in 10 seconds!', Style.BRIGHT)
+                    print(Fore.WHITE)
+                    time.sleep(10)
+                    os.system('/Users/tema/.buildozer/android/platform/android-sdk/platform-tools/adb reboot')
+                elif cmd_list[2] == '-push':
+                    if cmd_list[3] == '.':
+                        os.system('/Users/tema/.buildozer/android/platform/android-sdk/platform-tools/adb install ./bin/*.apk')
+
+        elif cmd_list[0] == 'start':
+            if cmd_list[1] == '-sdk-debug':
+                if cmd_list[2]== 'android-sdk':
+                    if cmd_list[3] == '-a':
+                        if cmd_list[4] == 'buildozer':
+                            os.system('say Запуск процедуры отладки проекта')
+                            time.sleep(2)
+                            os.system('say Файлы подготовлены, начало сборки')
+                            os.system('/Users/tema/Library/Python/3.9/bin/buildozer android debug')
+                            os.system('say Проект собран')
+        elif cmd_list[0] == 'exit':
+            isRunning = False
+
+
+def main():
+    main_arg = sys.argv[1:]
+
+    if main_arg[0] == 'init':
+        init()
+    else:
+        print('Wrong command!')
+
+    
+try:
+    main()
+except IndexError:
+    print('foxshell: no command')
