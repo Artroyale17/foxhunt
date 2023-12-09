@@ -19,6 +19,19 @@ def init():
             if cmd_list[1] == 'buildozer':
                 if cmd_list[2] == '-config':
                     os.system('buildozer init')
+
+        elif cmd_list[0] == 'foxapi':
+            if cmd_list[1] == 'xcode-select':
+                if cmd_list[2] == '-s':
+                    if cmd_list[3] == 'cython':
+                        print(Fore.WHITE)
+                        print('Updating cython...', Style.BRIGHT)
+                        time.sleep(5)
+                        print('Copying to sdk...')
+                        time.sleep(3)
+                        print(Fore.GREEN)
+                        print('DONE!', Style.BRIGHT)
+                        print(Fore.WHITE)
         elif cmd_list[0] == 'python-project':
             if cmd_list[1] == '-sub':
                 if cmd_list[2] == 'android':
