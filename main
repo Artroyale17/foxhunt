@@ -46,11 +46,7 @@ def init():
                 if cmd_list[2]== 'android-sdk':
                     if cmd_list[3] == '-a':
                         if cmd_list[4] == 'buildozer':
-                            os.system('say Запуск процедуры отладки проекта')
-                            time.sleep(2)
-                            os.system('say Файлы подготовлены, начало сборки')
                             os.system('/Users/tema/Library/Python/3.9/bin/buildozer android debug')
-                            os.system('say Проект собран')
         elif cmd_list[0] == 'exit':
             isRunning = False
 
