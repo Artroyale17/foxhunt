@@ -32,6 +32,8 @@ def init():
                         print(Fore.GREEN)
                         print('DONE!', Style.BRIGHT)
                         print(Fore.WHITE)
+            elif cmd_list[1] == 'nano':
+                os.system('nano ', cmd_list[2])
         elif cmd_list[0] == 'python-project':
             if cmd_list[1] == '-sub':
                 if cmd_list[2] == 'android':
