@@ -43,6 +43,13 @@ def init():
                     print(Fore.GREEN)
                     print('Your project was successfully subscribed for android SDK!', Style.BRIGHT)
                     print(Fore.WHITE)
+                elif cmd_list[2] == 'ios':
+                    print('')
+                    print('Subscribing...')
+                    time.sleep(3)
+                    print(Fore.GREEN)
+                    print('Your project was successfully subscribed for xcode IOS SDK!', Style.BRIGHT)
+                    print(Fore.WHITE)
         elif cmd_list[0] == 'foxadb':
             if cmd_list[1] == 'device':
                 if cmd_list[2] == '-connect':
