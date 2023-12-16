@@ -12,6 +12,9 @@ def init():
     image.printImage()
     isRunning = True
 
+    toolchain_addict = []
+    project_name = ''
+
     while isRunning:
         cmd = input('> ')
         cmd_list = cmd.split()
@@ -19,10 +22,13 @@ def init():
             if cmd_list[1] == 'buildozer':
                 if cmd_list[2] == '-config':
                     os.system('buildozer init')
+            if cmd_list[1] == 'toolchain':
+                if cmd_list[2] == '-config':
+                    os.system('touch ./foxhunt/toolchain-addict.conf')
 
         elif cmd_list[0] == 'foxapi':
             if cmd_list[1] == 'xcode-select':
-                if cmd_list[2] == '-s':
+                if cmd_list[2] == '-update':
                     if cmd_list[3] == 'cython':
                         print(Fore.WHITE)
                         print('Updating cython...', Style.BRIGHT)
@@ -32,8 +38,43 @@ def init():
                         print(Fore.GREEN)
                         print('DONE!', Style.BRIGHT)
                         print(Fore.WHITE)
+                elif cmd_list[2] == '-setconf':
+                    if cmd_list[3] == '-f':
+
+                        tc = open(cmd_list[4], 'r')
+
+                        for line in tc:
+                            toolchain_addict.append(line.strip())
+                        
+                        tc.close()
+
+                        print(Fore.WHITE)
+                        print('Setting up toolchain addictions...', Style.BRIGHT)
+                        time.sleep(7)
+                        print(Fore.GREEN)
+                        print('DONE!', Style.BRIGHT)
+                        print(Fore.WHITE)
+                elif cmd_list[2] == '-create':
+                        os.system('python3 ./foxhunt/kivy-ios/toolchain.py create ' + cmd_list[3] + ' ' + cmd_list[4])
             elif cmd_list[1] == 'nano':
                 os.system('nano ' + cmd_list[2])
+            elif cmd_list[1] == 'xcode-build':
+                if cmd_list[2] == '-swiftsdk':
+                    if cmd_list[3] == '-project':
+                        if cmd_list[5] == '-ipa':
+                            print(Fore.GREEN)
+                            print('Creating xcode archive...', Style.BRIGHT)
+                            print(Fore.WHITE)
+                            time.sleep(5)
+                            os.system('cd ./' + cmd_list[4] + '-ios; xcodebuild archive -scheme ' + cmd_list[4] + ' -sdk iphoneos -allowProvisioningUpdates -archivePath ' + cmd_list[4] + '.xcarchive')
+                            print(Fore.GREEN)
+                            print('Converting to .ipa file...')
+                            print(Fore.WHITE)
+                            time.sleep(10)
+                            os.system('cd ./' + cmd_list[4] + '-ios/*.xcarchive/Products/Applications; mkdir -p Payload; mv ' + cmd_list[4] + '.app Payload; zip -qr ' + cmd_list[6] + ' Payload; rm -r Payload')
+                            print(Fore.GREEN)
+                            print('DONE!', Style.BRIGHT)
+                            print(Fore.WHITE)
         elif cmd_list[0] == 'python-project':
             if cmd_list[1] == '-sub':
                 if cmd_list[2] == 'android':
@@ -72,7 +113,12 @@ def init():
                 elif cmd_list[2]== 'xcproject':
                     if cmd_list[3] == '-a':
                         if cmd_list[4] == 'toolchain':
-                            os.system('python3 ./kivy-ios/toolchain.py build')
+                            buildcmd = 'cd ./foxhunt/kivy-ios; python3 toolchain.py build ' + ' '.join(toolchain_addict)
+                            os.system(buildcmd)
+        elif cmd_list[0] == 'foxdeploy':
+            if cmd_list[1] == '-iosdevice':
+                if cmd_list[2] == '-install':
+                    os.system('ios-deploy --debug --bundle ' + cmd_list[3])
         elif cmd_list[0] == 'exit':
             isRunning = False
 
