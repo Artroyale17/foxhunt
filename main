@@ -69,6 +69,10 @@ def init():
                     if cmd_list[3] == '-a':
                         if cmd_list[4] == 'buildozer':
                             os.system('buildozer android debug')
+                elif cmd_list[2]== 'xcproject':
+                    if cmd_list[3] == '-a':
+                        if cmd_list[4] == 'toolchain':
+                            os.system('python3 ./kivy-ios/toolchain.py build')
         elif cmd_list[0] == 'exit':
             isRunning = False
 
