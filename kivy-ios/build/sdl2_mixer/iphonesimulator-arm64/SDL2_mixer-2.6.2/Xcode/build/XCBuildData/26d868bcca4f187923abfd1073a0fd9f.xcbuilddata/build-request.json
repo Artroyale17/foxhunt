@@ -1,0 +1,46 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildAndRun"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "d16f3f33f0d4fce04bb028a7718b962ba5f818e14a335abc39eeaed3c7a818e1"
+    }
+  ],
+  "containerPath" : "/Users/Tema/kivy-ios/build/sdl2_mixer/iphonesimulator-arm64/SDL2_mixer-2.6.2/Xcode/SDL_mixer.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "configurationName" : "Release",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+          "ARCHS" : "arm64",
+          "BITCODE_GENERATION_MODE" : "bitcode",
+          "HEADER_SEARCH_PATHS" : "$HEADER_SEARCH_PATHS /usr/include/machine /Users/Tema/kivy-ios/dist/include/iphonesimulator-arm64/ffi /Users/Tema/kivy-ios/dist/include/common/libpng /Users/Tema/kivy-ios/dist/include/iphonesimulator-arm64/openssl /Users/Tema/kivy-ios/dist/include/common/sdl2 /Users/Tema/kivy-ios/dist/include/common/sdl2_image /Users/Tema/kivy-ios/dist/include/common/sdl2_mixer /Users/Tema/kivy-ios/dist/include/common/sdl2_ttf ",
+          "IDEBuildOperationMaxNumberOfConcurrentCompileTasks" : "8",
+          "ONLY_ACTIVE_ARCH" : "NO",
+          "SDKROOT" : "iphonesimulator17.2"
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "build",
+          "COLOR_DIAGNOSTICS" : "YES",
+          "diagnostic_message_length" : "80",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : false,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : false
+}

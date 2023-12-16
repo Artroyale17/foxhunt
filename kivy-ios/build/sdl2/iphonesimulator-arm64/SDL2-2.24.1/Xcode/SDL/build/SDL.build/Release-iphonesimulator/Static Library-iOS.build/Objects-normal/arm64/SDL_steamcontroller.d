@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/src/joystick/steam/SDL_steamcontroller.c \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/src/joystick/steam/../../SDL_internal.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/src/joystick/steam/../../dynapi/SDL_dynapi.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_config.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_platform.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/begin_code.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/close_code.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_config_iphoneos.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_assert.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_stdinc.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_log.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/src/joystick/steam/../SDL_sysjoystick.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_joystick.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_error.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_guid.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/src/joystick/steam/../SDL_joystick_c.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_gamecontroller.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_rwops.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/include/SDL_sensor.h \
+  /Users/Tema/kivy-ios/build/sdl2/iphonesimulator-arm64/SDL2-2.24.1/src/joystick/steam/SDL_steamcontroller.h
