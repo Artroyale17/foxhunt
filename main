@@ -55,9 +55,9 @@ def init():
                         print('DONE!', Style.BRIGHT)
                         print(Fore.WHITE)
                 elif cmd_list[2] == '-create':
-                        os.system('python3 ./foxhunt/kivy-ios/toolchain.py create ' + cmd_list[3] + ' ' + cmd_list[4])
-            elif cmd_list[1] == 'nano':
-                os.system('nano ' + cmd_list[2])
+                        os.system('python3 ~/foxhunt/kivy-ios/toolchain.py create ' + cmd_list[3] + ' ' + cmd_list[4])
+            elif cmd_list[1] == 'neovim':
+                os.system('nvim ' + cmd_list[2])
             elif cmd_list[1] == 'xcode-build':
                 if cmd_list[2] == '-swiftsdk':
                     if cmd_list[3] == '-project':
@@ -75,6 +75,39 @@ def init():
                             print(Fore.GREEN)
                             print('DONE!', Style.BRIGHT)
                             print(Fore.WHITE)
+                        elif cmd_list[5] == '-forsim':
+                            if cmd_list[7] == '-m':
+                                if cmd_list[9]:
+                                    if cmd_list[10] == '&&':
+                                        if cmd_list[11] == 'foxdeploy' and cmd_list[13] == '-launch':
+                                            print(Fore.GREEN)
+                                            print('Building xcode project...', Style.BRIGHT)
+                                            print(Fore.WHITE)
+                                            time.sleep(5)
+                                            os.system('cd ~/' + cmd_list[4] + '-ios; xcodebuild -scheme ' + cmd_list[4] + ' -destination \"name=' + cmd_list[6] + ' ' + cmd_list[8] + '\" build; find /Users/Tema/Library/Developer/Xcode/DerivedData -iname \"' + cmd_list[4] + '.app\" -exec ios-sim launch {} --devicetypeid ' + cmd_list[15] + ' \;')
+                                            print(Fore.GREEN)
+                                            print('DONE!', Style.BRIGHT)
+                                            print(Fore.WHITE)
+                                        elif cmd_list[11] == 'foxdeploy' and cmd_list[13] == '-install':
+                                            print(Fore.GREEN)
+                                            print('Building xcode project...', Style.BRIGHT)
+                                            print(Fore.WHITE)
+                                            time.sleep(5)
+                                            os.system('cd ~/' + cmd_list[4] + '-ios; xcodebuild -scheme ' + cmd_list[4] + ' -destination \"name=' + cmd_list[6] + ' ' + cmd_list[8] + '\" build; find /Users/Tema/Library/Developer/Xcode/DerivedData -iname \"' + cmd_list[4] + '.app\" -exec ios-sim -install {} --devicetypeid ' + cmd_list[15] + ' \;')
+                                            print(Fore.GREEN)
+                                            print('DONE!', Style.BRIGHT)
+                                            print(Fore.WHITE)
+                                    else:
+                                        print(Fore.GREEN)
+                                        print('Building xcode project...', Style.BRIGHT)
+                                        print(Fore.WHITE)
+                                        time.sleep(5)
+                                        os.system('cd ~/' + cmd_list[4] + '-ios; xcodebuild -scheme ' + cmd_list[4] + ' -destination \"name=' + cmd_list[6] + ' ' + cmd_list[8] + '\" build; find /Users/Tema/Library/Developer/Xcode/DerivedData -iname \"' + cmd_list[4] + '.app\" -exec mv {} ' + cmd_list[10] + ' \;')
+                                        print(Fore.GREEN)
+                                        print('DONE!', Style.BRIGHT)
+                                        print(Fore.WHITE)
+                                
+
         elif cmd_list[0] == 'python-project':
             if cmd_list[1] == '-sub':
                 if cmd_list[2] == 'android':
@@ -113,12 +146,27 @@ def init():
                 elif cmd_list[2]== 'xcproject':
                     if cmd_list[3] == '-a':
                         if cmd_list[4] == 'toolchain':
-                            buildcmd = 'cd ./foxhunt/kivy-ios; python3 toolchain.py build ' + ' '.join(toolchain_addict)
+                            buildcmd = 'python3 ~/foxhunt/kivy-ios/toolchain.py build ' + ' '.join(toolchain_addict)
                             os.system(buildcmd)
         elif cmd_list[0] == 'foxdeploy':
             if cmd_list[1] == '-iosdevice':
                 if cmd_list[2] == '-install':
                     os.system('ios-deploy --debug --bundle ' + cmd_list[3])
+                elif cmd_list[2] == '-detect':
+                    os.system('ios-deploy --detect')
+            elif cmd_list[1] == '-simulator':
+                if cmd_list[2] == '-list':
+                    os.system('ios-sim showdevicetypes')
+                elif cmd_list[2] == '-install':
+                    if cmd_list[4] == '--devicetype':
+                        os.system('ios-sim install ' + cmd_list[3] + ' --devicetypeid ' + cmd_list[5])
+                elif cmd_list[2] == '-start':
+                    if cmd_list[3] == '--devicetype':
+                        os.system('ios-sim start --devicetypeid ' + cmd_list[5])
+                elif cmd_list[2] == '-launch':
+                    if cmd_list[4] == '--devicetype':
+                        os.system('ios-sim launch ' + cmd_list[3] + ' --devicetypeid ' + cmd_list[5])
+
         elif cmd_list[0] == 'exit':
             isRunning = False
 
